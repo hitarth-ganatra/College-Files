@@ -8,5 +8,5 @@ while i <= 10:
         f.close()
         
     # to delete files using python
-    os.remove(f"{i}.html")
+    # os.remove(f"{i}.html")
     i += 1
