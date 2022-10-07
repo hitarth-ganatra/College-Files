@@ -2,7 +2,6 @@
 #include<stdlib.h>
 #include<string.h>
 #include<conio.h>
-#include<windows.h>
 #define MAX 10000 // Maximum number of contacts (can be increased)
 
 int max_num(){
@@ -25,9 +24,8 @@ int add(){
     FILE *list = fopen("list.txt", "ab++");
     double number;
     char name[50];
-    char surname[50];
 
-
+    fflush(stdin);
     // To check the last serial number in the file
     // max_num(buffer, list, current, max, j);
 
@@ -37,30 +35,31 @@ int add(){
     }
     else{
         printf("Enter the full name of the contact: ");
-        scanf("%s %s", &name, &surname);
+        gets(name);
 
         printf("Enter the number of the contact: ");
         scanf("%lf", &number);
 
-        fprintf(list, "%s %s %.0lf\n", name, surname, number);
+        fprintf(list, "%s %.0lf\n", name, number);
         fclose(list);
     }
 
     fclose(list);
+    return 0;    
     
-    return 0;
 }
 int search(){
     char name_to_search[100];
     FILE *list = fopen("list.txt", "r");
     char name[100];
-    int result;
+    int result1, result2;
     int sn;
     char surname[100];
-    double number;
+    double number, num_to_search;
     int error=0, flag = 0;
-    int choice, num_to_search;
+    int choice;
     int mns;
+    int t = 0; 
 
     mns = max_num();
 
@@ -73,73 +72,56 @@ int search(){
     else{
         printf("\n\tWhat details do you would like to enter? ");
         printf("\n\n\t1. Name");
-        printf("\n\t2. Surname");
-        printf("\n\t3. Number\n");
+        printf("\n\t2. Number\n");
 
         printf("\n\tEnter your choice: ");
         scanf("%d", &choice);
 
+        
         switch (choice)
         {
             case 1:
                 printf("\tEnter the name of the contact to search: ");
-                scanf("%s", &name_to_search);
+                gets(name_to_search);
 
+                printf("\n---------------------------------------------------------\n");         
                 while(fscanf(list, "%s %s %lf\n", name, surname, &number) != EOF){
 
-                    result = strcmp(name_to_search, name);
-                    if(result == 0){
+                    result1 = strcmp(name_to_search, name);
+                    result2 = strcmp(name_to_search, surname);
+                    if(result1 == 0 || result2 == 0){
                         flag++;
                     }
-                    if(error == mns - flag){
-                        continue;   
-                    }
-                    if(flag == 0){
-                        printf("\n\tNo contact found with the surname %s\n", name_to_search);
-                    }
                     else{
-                        printf("\n\tContact Details are: ");
-                        while(flag != 0){
-                            printf("\n\t%s %s - %.0lf\n", name, surname, number);
+                        error++;
+                    }
+                    while(flag != 0){
+                            printf("\n\t%s %s %.0lf", name, surname, number);
                             flag--;
                         }
-                    }
-                }
+                }                
+                printf("\n---------------------------------------------------------\n");
+
                 break;
             
             case 2:
-                printf("\tEnter the surname of the contact to search: ");
-                scanf("%s", &name_to_search);
+                printf("Enter the number of the contact to search: ");
+                scanf("%lf", &num_to_search);
 
                 while(fscanf(list, "%s %s %lf\n", name, surname, &number) != EOF){
-
-                    result = strcmp(name_to_search, surname);
-                    if(result == 0){
+                    if(number == num_to_search){
                         flag++;
                     }
-                    if(flag == 0){
-                        // printf("\n\tNo contact found with the surname %s\n", name_to_search);
-                        error++;
-                    }
                     else{
-                        printf("\n\tContact Details are: ");
-                        while(flag != 0){
-                            printf("\n\t%s %s - %.0lf\n", name, surname, number);
+                        continue;
+                    }
+                    while(flag != 0){
+                            printf("\n---------------------------------------------------------\n");
+                            printf("\n\t%s %s %.0lf\n", name, surname, number);
                             flag--;
                         }
-                    }
-                    if(error == mns - flag){
-                        continue;   
-                    }
-                    else{
-                        printf("\n\tNo contact found with the surname %s\n", name_to_search);
-                    }
+                    printf("\n---------------------------------------------------------\n");
                 }
-                break;
-            
-            case 3:
-                printf("Enter the number of the contact to search: ");
-                scanf("%s", &num_to_search);
                 break;
 
             default:
@@ -153,8 +135,130 @@ int search(){
     return 0;
 }
 int delete(){
-    printf("Delete Function Called");
+    fflush(stdin);
+    FILE *list = fopen("list.txt", "r");
+    char name_to_delete[100];
+    double num_to_delete;
+    char name[100];
+    int flag = 0;
+    char surname[100];
+    double number;
+    int choice;
+    int result, result2;
+    // How to delete a line from a file in C?
+
+    if (list == NULL)
+    {
+        printf("Failed to create the required file.");
+    }
+    else{
+        printf("\n\tWhat details do you would like to enter? ");
+        printf("\n\n\t1. Name");
+        printf("\n\t2. Number\n");
+
+        printf("\n\tEnter your choice: ");
+        scanf("%d", &choice);
+
+        switch(choice){
+            case 1:
+                printf("Enter the name of the contact to delete: ");
+                gets(name_to_delete);
+
+                while(fscanf(list, "%s %s %lf\n", name, surname, &number) != EOF){
+                    result = strcmp(name_to_delete, name);
+                    result2 = strcmp(name_to_delete, surname);
+                    if(result == 0 || result2 == 0){
+                        flag++;
+                    }
+                    else{
+                        continue;
+                    }
+                    printf("\n---------------------------------------------------------\n");
+                    while(flag != 0){
+                            
+                            flag--;
+                        }
+                    printf("\n---------------------------------------------------------\n");
+                }
+                break;
+            case 2:
+                printf("Enter the number of the contact to delete: ");
+                scanf("%lf", &num_to_delete);
+
+                while(fscanf(list, "%s %s %lf\n", name, surname, &number) != EOF){
+                    if(number == num_to_delete){
+                        flag++;
+                    }
+                    else{
+                        continue;
+                    }
+                    printf("\n---------------------------------------------------------\n");
+                    while(flag != 0){
+
+                            flag--;
+                        }
+                    printf("\n---------------------------------------------------------\n");
+                }
+                break;
+
+            default:
+                printf("Invalid choice.");
+                break;
+        }
+    }
+    
+    fclose(list);
     return 0;
+}
+void deletefun(){
+	FILE *fptr,*fptr1;
+	char name[100];
+	char name1[100];
+	int res,f=0;
+    char surname[100];
+	double phone,phone1;
+	fptr=fopen("list.txt","r");
+	fptr1=fopen("temp.txt","a");
+    fflush(stdin);
+	// system("cls");
+	// gotoxy(31,4);
+	printf("Enter the CONTACT name that you want to delete: ");
+	gets(name1);
+	// system("cls");
+	while(fscanf(fptr,"%s %s %lf\n",name,surname,&phone)!=EOF){
+		res=strcmp(name,name1);
+		if(res==0)
+		{
+			f=1;
+			printf("Record deleted successfully");
+			
+		}else{
+			fprintf(fptr1,"%s %s %.0lf\n",name,surname,phone);
+		}
+	}
+	if(f==0){
+		printf("Record Not found.");
+    }
+	fclose(fptr);
+	fclose(fptr1);
+	fptr=fopen("list.txt","w");
+	fclose(fptr);
+	fptr=fopen("list.txt","a");
+	fptr1=fopen("temp.txt","r");
+	while(fscanf(fptr1,"%s %s %s %s %lf\n",name,surname,&phone)!=EOF){
+		fprintf(fptr,"%s %s %s %s %.0lf\n",name,surname,phone);
+		
+	}
+	
+	fclose(fptr);
+	fclose(fptr1);
+	fptr1=fopen("temp.txt","w");
+	fclose(fptr1);
+	// printf("\n\nPress y for menu option.");
+	// fflush(stdin);
+	// if(getch()=='y'){
+	// 	menu();
+	// };
 }
 
 int main()
@@ -162,7 +266,7 @@ int main()
     int choice;
 
     // system("cls");
-    system("color cf");
+    system("color 60");
 
     printf("***********************************************\n");
     printf("\xDB\xDB\xDB\xDB\xDB\xDB\xDB\xDB Welcome to the our Phone Book \xDB\xDB\xDB\xDB\xDB\xDB\xDB\xDB\n\n");
@@ -186,7 +290,7 @@ int main()
             break;
         case 3:
             printf("\n");
-            delete();
+            deletefun();
             break;
         default:
             printf("\n");
@@ -195,5 +299,6 @@ int main()
     }
 
     printf("\n***********************************************\n");
+
     return 0;
 }
