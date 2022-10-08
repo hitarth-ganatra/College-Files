@@ -1,2 +1,2 @@
 # College-Files
-Config files for my College work.
+Coding files for my College work.
