@@ -5,6 +5,51 @@
 </head>
 <body>
     <h1>Pizza Form</h1>
-    <form action=""></form>
+    <fieldset>
+        <legend>Personal Info</legend>
+        <form action="">
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname">
+            <br>
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname">
+            <br>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" maxlength="10" minlength="10">
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>Pizza</legend>
+        Size: <br>
+        <input type="radio" name="size" id="small">
+        <label for="small">Small</label><br>
+        <input type="radio" name="size" id="medium">
+        <label for="medium">Medium</label><br>
+        <input type="radio" name="size" id="large">
+        <label for="large">Large</label>
+        <br><br>
+        Toppings (check all that apply):<br>
+        <input type="checkbox" name="toppings" id="extra">
+        <label for="extra">Extra Cheese</label>
+        <input type="checkbox" name="toppings" id="pepperoni">
+        <label for="pepperoni">Pepperoni</label>
+        <input type="checkbox" name="toppings" id="sausage">
+        <label for="sausage">Sausage</label>
+        <br>
+        <input type="checkbox" name="toppings" id="mushrooms">
+        <label for="mushrooms">Mushrooms</label>
+        <input type="checkbox" name="toppings" id="olives">
+        <label for="olives">Black Olives</label>
+        <input type="checkbox" name="toppings" id="peppers">
+        <label for="peppers">Green Peppers</label>
+        <br>
+        <input type="checkbox" name="toppings" id="tomato">
+        <label for="tomato">Tomatos</label>
+        <input type="checkbox" name="toppings" id="onion">
+        <label for="onion">Onions</label>
+        <input type="checkbox" name="toppings" id="anchovies">
+        <label for="anchovies">Anchovies</label>
+    </fieldset>
+    <input type="submit" value="Enter my information">
 </body>
 </html>
