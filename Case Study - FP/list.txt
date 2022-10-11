@@ -7,5 +7,4 @@ Siddharth Patel 1234567890 example@example.com
 Ritu Mehta 9033377239 ritu@mehta.com
 Tarak Mehta 9909651415 tarak@mehta.com
 Jethalal Gada 9824244702 jethalal@gada.com
-
 Heet Butani 7984608528 butaniheet@gmail.com
