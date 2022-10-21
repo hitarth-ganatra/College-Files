@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>22BCA064</title>
+</head>
+<body>
+	<h1>Create a new account</h1>
+    <form action="">
+        <label for="email">Your Email</label>
+        <input type="email" name="email" id="email">
+        <br><br>
+        <label for="conf">Confirm Email</label>
+        <input type="email" name="conf" id="conf">
+        <br><br>
+        <label for="country">Country</label>
+        <input type="text" id="country" name="country" list="countries">
+        <datalist id="countries">
+            <option value="India">
+            <option value="USA">
+            <option value="UK">
+            <option value="Canada">
+            <option value="Australia">
+        </datalist>
+        <br><br>
+        <label for="zip">Zip Code</label>
+        <input type="number" name="zip" id="zip">
+        <br><br>
+        <label for="pass">Password:</label>
+        <input type="password" name="pass" id="pass">
+        <br><br>
+        <label for="confirm">Confirm Password:</label>
+        <input type="password" name="confirm" id="confirm">
+        <br><br>
+        &emsp;&emsp;&emsp;&emsp;&emsp;
+        <input type="checkbox" id="agree" name="agree">
+        <label for="agree">Yes, I agree to the Mint.com.<span style="color: rgb(2, 47, 192);"><strong>Terms Of Use</strong></span></label>
+        <br><br>
+        &emsp;&emsp;&emsp;&emsp;&emsp;
+        <input type="submit" value="Sign Up">
+    </form>
+</body>
+</html>
