@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 void main(){
-    // Write a program to find smallest number in an array
     int arr[5], min = 0, i;
     for(int i=0; i<5; i++){
         printf("Enter a number: ");
