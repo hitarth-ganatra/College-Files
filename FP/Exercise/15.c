@@ -4,8 +4,6 @@ void main(){
 	func();
 }
 void func(){
-    // To swap 2 numbers without using 3rd variable
-
     int a, b;
     printf("Enter 2 numbers: ");
     scanf("%d %d", &a, &b);

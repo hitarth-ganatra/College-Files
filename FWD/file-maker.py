@@ -2,7 +2,7 @@ import os
 
 i = 1;
 
-while i <= 5:
+while i <= 7:
     with open(f"{i}.html", 'w') as f:
         f.write(f"<!DOCTYPE html>\n<html>\n<head>\n<title>22BCA064</title>\n</head>\n<body>\n\t\n</body>\n</html>")
         f.close()

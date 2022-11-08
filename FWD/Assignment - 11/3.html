@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>22BCA064</title>
+</head>
+<body>
+	<form action="https://google.com" method="post">
+        <label for="uname">User Name: <span style="color: red;">*</span></label>
+        <input type="text" id="uname">
+        <br><br>
+        <label for="pass">Password: <span style="color: red;">*</span></label>
+        <input type="password" id="pass" pattern="^[A-Z][a-z][0-9][@/_/-/.]$">
+        <span style="color: red;">(Enter one capital, small Alphabet, one digit, one speacial character(@/_/-/.))</span>
+        <br><br>
+        <label for="num">Contact No. <span style="color: red;">*</span></label>
+        <input type="tel" id="num">
+        <span style="color: red;">(Enter 10 digit No.)</span>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

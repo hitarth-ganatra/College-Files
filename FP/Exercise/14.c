@@ -1,8 +1,6 @@
 #include <stdio.h>
 int isPrime(int num);
 void main(){
-	// Write a program to check whether a number is prime or not
-
     int num;
     printf("Enter a number: ");
     scanf("%d", &num);

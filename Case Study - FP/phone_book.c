@@ -271,7 +271,7 @@ int delete(){
                         scanf("%c", &sure);
                         if(sure == 'y'){
                             printf("\n\t\t%s %s has been deleted.", name, surname);
-                            fprintf(bin, "%s %s %.0lf %s\n", name, surname, number, email);
+                            fprintf(bin, "\n%s %s %.0lf %s\n", name, surname, number, email);
                         }
                         else{
                             fprintf(temp, "%s %s %.0lf %s\n", name, surname, number, email);
@@ -369,7 +369,7 @@ void bin(){
         fflush(stdin);
         printf("\n\t\tEnter the name of the contact to restore: ");
         gets(property_to_restore);
-        printf("*");
+        
         while (fscanf(bin, "%s %s %lf %s\n", name, surname, &number, email) != EOF)
         {
             if(strcmp(name, property_to_restore) != 0){
@@ -380,7 +380,6 @@ void bin(){
                 fprintf(list, "%s %s %.0lf %s\n", name, surname, number, email);
             }
         }
-        printf("*");
         
         fclose(list);
         fclose(temp);
