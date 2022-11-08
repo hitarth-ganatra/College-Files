@@ -4,6 +4,31 @@
 <title>22BCA064</title>
 </head>
 <body>
-	
+	<h1 style="color: darkblue;">A simple form</h1>
+    <i style="color: grey;">Form Fundamentals</i>
+    <fieldset>
+        <legend>Customer Info</legend>
+        <form action="https://google.com">
+            <label for="name">Name: </label>
+            <input type="text" placeholder="Enter your name">
+            <br><br>
+            <label for="telephone">Telephone: </label>
+            <input type="tel" placeholder="Pattern: 1-234-567-8910" pattern="^[0-9][-][0-9]+[-][0-9]+[-][0-9]+$">
+            <br><br>
+            <label for="email">Email Address: </label>
+            <input type="email" placeholder="Enter your email address">
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>Books</legend>
+        <form action="https://google.com">
+            <input type="text">
+            <label for="quantity">Quantity (Maximum 5): </label>
+            <input type="number" max="5">
+        </form>
+    </fieldset>
+    <button type="submit">Submit</button>
+    <br>
+    &emsp;&copy; 2011 Acme United. Allrights reserved.
 </body>
 </html>
