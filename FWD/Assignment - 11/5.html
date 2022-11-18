@@ -4,6 +4,57 @@
 <title>22BCA064</title>
 </head>
 <body>
-	
+	<h1>Travel reservation form</h1>
+    <h3>* denotes mandatory</h3>
+    <form action="https://google.com">
+        <label for="name">Full Name * :</label>
+        <br>
+        <input type="text" id="name" required placeholder="First Name      Last Name">
+        <br>
+        <label for="email">Email Address * :</label>
+        <br>
+        <input type="email" id="email" placeholder="EMAIL_ADDRESS" required>
+        <br>
+        <label for="package">Select tour Package * :</label>
+        <br>
+        <select id="package" required>
+            <option value="1">Goa</option>
+            <option value="2">Manali</option>
+            <option value="3">Thailand</option>
+            <option value="4">Ambaji</option>
+            <option value="5">London</option>
+        </select>
+        <br>
+        <label for="arrival">Arrival Date * :</label>
+        <br>
+        <input type="text" id="arrival" placeholder="m/d/y" required>
+        <br>
+        <label for="persons">Number of persons * :</label>
+        <br>
+        <input type="number" placeholder="UNKNOWN_TYPE" required id="persons">
+        <br>
+        <label for="que">What would you want to avail? *</label>
+        <br>
+        <label for="boarding">Boarding</label>
+        <input type="checkbox" name="boarding" id="boarding">
+        <br>
+        <label for="food">Fooding</label>
+        <input type="checkbox" name="food" id="food">
+        <br>
+        <label for="sightseeing">Sight seeing</label>
+        <input type="checkbox" name="sightseeing" id="sightseeing">
+        <br><br>
+        <label for="code">Discount Coupon Code: </label>
+        <input type="number" placeholder="UNKNOWN_TYPE">
+        <br>
+        <label for="agree">Terms and Conditions *</label>
+        <br>
+        <input type="radio" name="agree" id="agree1" required>
+        <label for="agree1" name="agree">I agree</label>
+        <input type="radio" name="agree" id="agree2" required>
+        <label for="agree2" name="agree">I disagree</label>
+        <br>
+        <input type="submit" value="Complete Reservation" formnovalidate>
+    </form>
 </body>
 </html>

@@ -2,24 +2,6 @@
 #include<stdlib.h>
 #include<string.h>
 #include<conio.h>
-// #define MAX 10000 // Maximum number of contacts (can be increased)
-
-// int max_num(){
-//     FILE *list = fopen("list.txt", "ab++");
-//     char buffer[MAX]; // buffer to store the data from the file
-//     int j = 0; // j is used to check the next serial number of the contact 
-//     double current, max = 0; //current stores the current serial number, max has the largest value of serial number in the file
-
-//     while(fgets(buffer, MAX, list) != NULL){
-//         current = atof(buffer);
-//         if(j == 0) max = current;
-//         else if(current > max) max = current;
-        
-//         j++;
-//     }
-//     fclose(list);
-//     return max;
-// }
 
 int total_lines(void){
     FILE *list = fopen("list.txt", "r");
@@ -38,7 +20,7 @@ void askagain(){
     char choice;
     printf("\n\n\t\tWould you like to do anything else? (y/n): ");
     scanf("%c", &choice);
-    if(choice == 'y'){
+    if(choice == 'y'){  
         main();
     }
     else{
@@ -333,18 +315,6 @@ void list(){
     askagain();
     printf("\n\n-----------------------------------------------------------------------------------------\n");
 }
-void edit(){
-    FILE *list = fopen("list.txt", "r");
-    FILE *temp = fopen("temp.txt", "w");
-    fflush(stdin);
-    char name[50];
-    char surname[50];
-    
-
-	fclose(list);
-    fclose(temp);
-    askagain();
-}
 void bin(){
     FILE *list = fopen("list.txt", "ab++");
     FILE *bin = fopen("deleted.txt", "r");
@@ -402,10 +372,9 @@ int main()
 
     printf("\t    1. Add a new contact\n");
     printf("\t    2. Search a contact\n");
-    printf("\t    3. Modify a contact\n");
+    printf("\t    3. Delete a contact\n\n");
     printf("\t    4. List all contacts\n");
     printf("\t    5. List all contacts from Recycle Bin\n");
-    printf("\t    6. Delete a contact\n\n");
 
     printf("\t    Enter your choice: ");
     scanf("%d", &choice);
@@ -422,7 +391,7 @@ int main()
             break;
         case 3:
             system("cls");
-            edit();
+            delete();
             break;
         case 4:
             system("cls");
@@ -431,10 +400,6 @@ int main()
         case 5:
             system("cls");
             bin();
-            break;
-        case 6:
-            system("cls");
-            delete();
             break;
         default:
             printf("\n");
