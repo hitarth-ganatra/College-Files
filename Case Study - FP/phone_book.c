@@ -333,30 +333,6 @@ void bin(){
         printf("\n\t\t%d. %s %s - %.0lf - %s", i, name, surname, number, email);
         i++;
     }
-    printf("\n\nWould you like to restore any of the deleted contacts? (y/n): ");
-    scanf("%c", &sure);
-    if(sure == 'y'){
-        fflush(stdin);
-        printf("\n\t\tEnter the name of the contact to restore: ");
-        gets(property_to_restore);
-        
-        while (fscanf(bin, "%s %s %lf %s\n", name, surname, &number, email) != EOF)
-        {
-            if(strcmpi(name, property_to_restore) != 0){
-                fprintf(temp, "%s %s %.0lf %s\n", name, surname, number, email);
-            }
-            else{
-                printf("\n\t\t%s %s has been restored.", name, surname);
-                fprintf(list, "%s %s %.0lf %s\n", name, surname, number, email);
-            }
-        }
-        
-        fclose(list);
-        fclose(temp);
-        fclose(bin);
-        // remove("bin.txt");
-        // rename("temp.txt", "bin.txt");
-    }
     askagain();
     printf("\n\n-----------------------------------------------------------------------------------------\n");
 }
