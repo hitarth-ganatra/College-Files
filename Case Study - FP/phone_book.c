@@ -107,8 +107,8 @@ int search(){
                 printf("\n-----------------------------------------------------------------------------------------\n");         
                 while(fscanf(list, "%s %s %lf %s\n", name, surname, &number, email) != EOF){
 
-                    result1 = strcmp(name_to_search, name);
-                    result2 = strcmp(name_to_search, surname);
+                    result1 = strcmpi(name_to_search, name);
+                    result2 = strcmpi(name_to_search, surname);
                     if(result1 == 0 || result2 == 0){
                         flag++;
                     }
@@ -131,7 +131,7 @@ int search(){
 
                 printf("\n-----------------------------------------------------------------------------------------\n");         
                 while(fscanf(list, "%s %s %lf %s\n", name, surname, &number, email) != EOF){
-                    result1 = strcmp(email_to_search, email);
+                    result1 = strcmpi(email_to_search, email);
                     if(result1 == 0){
                         flag++;
                     }
@@ -220,10 +220,10 @@ int delete(){
 
                 while(fscanf(list, "%s %s %lf %s\n", name, surname, &number, email) != EOF){
                     strcat(strcat(name, " "),surname);
-                    if(strcmp(name, property_to_delete) != 0){
+                    if(strcmpi(name, property_to_delete) != 0){
                         fprintf(temp, "%s %.0lf %s\n", name, number, email);
                     }
-                    else if(strcmp(name, property_to_delete) == 0){
+                    else if(strcmpi(name, property_to_delete) == 0){
                         printf("\n\t\tAre you sure you want to delete %s? (y/n): ", name);
                         scanf("%c", &sure);
                         if(sure == 'y'){
@@ -245,7 +245,7 @@ int delete(){
                 gets(property_to_delete);
 
                 while(fscanf(list, "%s %s %lf %s\n", name, surname, &number, email) != EOF){
-                    if(strcmp(email, property_to_delete) != 0){
+                    if(strcmpi(email, property_to_delete) != 0){
                         fprintf(temp, "%s %s %.0lf %s\n", name, surname, number, email);
                     }
                     else{
@@ -317,8 +317,8 @@ void list(){
 }
 void bin(){
     FILE *list = fopen("list.txt", "ab++");
-    FILE *bin = fopen("deleted.txt", "r");
-    FILE *temp = fopen("temp.txt", "w");
+    FILE *bin = fopen("bin.txt", "r");
+    FILE *temp = fopen("temp.txt", "ab++");
     char name[100];
     char surname[100];
     double number;
@@ -342,7 +342,7 @@ void bin(){
         
         while (fscanf(bin, "%s %s %lf %s\n", name, surname, &number, email) != EOF)
         {
-            if(strcmp(name, property_to_restore) != 0){
+            if(strcmpi(name, property_to_restore) != 0){
                 fprintf(temp, "%s %s %.0lf %s\n", name, surname, number, email);
             }
             else{
@@ -368,13 +368,13 @@ int main()
     system("color B");
 
     printf("***********************************************************\n");
-    printf("      \xDB\xDB\xDB\xDB\xDB\xDB\xDB\xDB Welcome to the our Phone Book \xDB\xDB\xDB\xDB\xDB\xDB\xDB\xDB\n\n");
+    printf("      \xDB\xDB\xDB\xDB\xDB\xDB\xDB\xDB Welcome to our Phone Book \xDB\xDB\xDB\xDB\xDB\xDB\xDB\xDB\n\n");
 
     printf("\t    1. Add a new contact\n");
     printf("\t    2. Search a contact\n");
-    printf("\t    3. Delete a contact\n\n");
+    printf("\t    3. Delete a contact\n");
     printf("\t    4. List all contacts\n");
-    printf("\t    5. List all contacts from Recycle Bin\n");
+    printf("\t    5. List all contacts from Recycle Bin\n\n");
 
     printf("\t    Enter your choice: ");
     scanf("%d", &choice);
