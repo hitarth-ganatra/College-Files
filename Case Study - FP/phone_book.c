@@ -3,17 +3,6 @@
 #include<string.h>
 #include<conio.h>
 
-int total_lines(void){
-    FILE *list = fopen("list.txt", "r");
-    int count = 1;
-    char c;
-
-    for(c = getc(list); c != EOF; c = getc(list)){
-        if(c == '\n') count++;
-    }
-    fclose(list);
-    return count;
-}
 int main();
 void askagain(){
     fflush(stdin);

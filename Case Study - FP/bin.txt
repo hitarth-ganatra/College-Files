@@ -1,3 +1,5 @@
 Aditya Ramanathan 1234509876 aditya@gmail.com
 Jay Nanavati 9876543210 jaynavavati@mca.charusat.org
-Preet Dangaria 1457812345 preet@gmail.com
+
+Siddharth Patel 1234567890 siddharth@gmail.com
+Manan Jain 1234567890 manan@gmail.com
