@@ -1,6 +1,6 @@
 #include <stdio.h>
 int multiplication();
-void main(){
+int main(void){
     int result;
 	result = multiplication();
 

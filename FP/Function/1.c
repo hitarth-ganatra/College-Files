@@ -4,5 +4,5 @@ void main(){
 	message();
 }
 void message(){
-    printf("Hello !!!\n");
+    printf("Hello world");
 }
