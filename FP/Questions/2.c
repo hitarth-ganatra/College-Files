@@ -31,6 +31,7 @@ int main()
     {
         for(int j = 0; j < 3; j++)
         {
+                //    1 0     0 1  =  2
             transpose[j][i] = a[i][j];
         }
     }
