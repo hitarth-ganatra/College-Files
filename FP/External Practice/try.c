@@ -1,22 +1,19 @@
 #include<stdio.h>
-
-int main()
+int main(int argc, char const *argv[])
 {
-    // Center star pyramid in c
+    int a=0,b=1,nxt,num,i;
 
-    int i, j;
-    
-    for(i=1; i<=6; i++)
-    {
-        for(j=1; j<=6-i; j++)
-        {
-            printf(" ");
-        }
-        for(j=1; j<=i; j++)
-        {
-            printf("* ");
-        }
-        printf("\n");
-    }
+    printf("enter the num");
+    scanf("%d",&num);
+
+printf("fibonaci series is %d %d  ",a,b);
+nxt=a+b;
+for(i=2;i<=num;i++)
+{
+    printf("%d ",nxt);
+    a=b;
+    b=nxt;
+    nxt=a+b;
+}
     return 0;
 }
